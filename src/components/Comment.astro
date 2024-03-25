@@ -18,6 +18,8 @@
         script.async = true;
         script.onload = () => {
           // 在脚本加载完成后初始化评论工具
+          const initScript = document.createElement('script');
+          initScript.innerHTML = `
           Artalk.init({
             el: "#Comments", // 绑定元素的 Selector
             pageKey: "", // 固定链接 (留空自动获取)
@@ -25,6 +27,8 @@
             server: "https://artalk.laomai.org", // 后端地址
             site: "sas", // 你的站点名
           });
+          `;
+        document.body.appendChild(initScript);
         };
         document.body.appendChild(script);
       }
